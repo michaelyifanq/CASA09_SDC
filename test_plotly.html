@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>plot 绘制图像</title>
+</head>
+<body>
+<div id="tester" style="width:600px;height:250px;"></div>
+</body>
+<script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+<!-- test -->
+<script>
+  var TESTER = document.getElementById('tester');
+
+  var trace1 = {
+      type: 'scatter',
+      x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+      y: [673.5,675.9,643.1,636.3,577.3,612.1,505.8,587,556,487.5,471.7,440.8,423,415.4,406.5],
+      name: 'Hartlepool',
+      line:{
+        color: "rgb(219,64,82)",
+        shape: 'spline'
+      }
+  }
+
+  var trace2 = {
+      x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+      y: [1038,1044.2,1048.9,971.7,846.6,853.3,800.5,837.3,765.9,691.7,679.9,641.7,613.6,625.5,598.2],
+      type: 'scatter',
+      name: 'Middlesbrough',
+      line:{
+        color: "rgb(250,153,4)",
+        shape: 'spline'
+      }
+  }
+
+  var trace3 = {
+      x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+      y: [1439.5,1418.7,1389,1339.6,1070.2,1093.2,965.1,998,987.4,914.9,837.9,861.7,863.8,898.7,829.3],
+      type: 'scatter',
+      name: 'Redcar and Cleveland',
+      line:{
+        color: "rgb(55,128,191)",
+        shape: 'spline'
+      }
+  }
+
+  var layout = {
+  title: 'Total Emission Time Series Example',
+  width:1000,
+  height:400,
+  xaxis: {
+    title: 'Year',
+    showgrid: false,
+    zeroline: false
+  },
+  yaxis: {
+    title: 'Grand Total Emission (t)',
+    showline: false
+  },
+  legend:{
+    yref:'paper',
+    font:{
+      size:15,
+      color:'black'
+    }
+  },
+  margin: {t: 0}
+};
+
+  var data = [trace1,trace2,trace3];
+
+  Plotly.plot(TESTER, data, layout);
+</script>
+</html>
